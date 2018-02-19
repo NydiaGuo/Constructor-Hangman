@@ -29,28 +29,28 @@ var Word = function(word) {
 
 	this.checkIfLetterFound = function(guessedLetter) {
 		
-		console.log(this.newletter);
 	   //iterates through each letter to see if it matches the guessed letter
-	   	this.newletter.forEach(function(char){
-	    	if(char.character === guessedLetter){
-		     	char.appear = true;
-		     
-	    	}
-	   	});
-	
-
+	   var wordObject = this; 
+	   console.log("Your Array is: \n");
+	   console.log(wordObject.newLetter);
+	   	for(var i =0; i < that.newLetter.length; i++){
+	   		 if(that.newLetter[i].character === guessedLetter){
+		     	that.newLetter[i] = true;
+	    	}	
+	   	}
 	};
 
 	this.wordRender = function() {
-		var showLetter = " ";
-		// for (var = 0; i < this.newLetter.length; i++) {
-		// 	showLetter += this.newLetter.length
-		// }
-		that.newLetter.forEach(function(char){
-			var currentLetters = char.letterRender();
-			showLetter += currentLetters;
-		});
-		return showLetter;
+		//var showLetter = "";
+		for (var i = 0; i < that.newLetter.length; i++) {
+			//showLetter += that.newLetter.length[i];
+			console.log("this is wordRender :" + that.newLetter[i].toString());
+		 }
+		// that.newLetter.forEach(function(char){
+		// 	var currentLetters = char.letterRender();
+		// 	showLetter += currentLetters;
+		// });
+		//return showLetter;
 	};
 }
 
@@ -63,8 +63,8 @@ var test = new Word("abc");
 console.log("addLetters: " + test.addLetters());
 console.log("----------------------------------------");
 
-console.log(test.newLetter);
-console.log("----------------------------------------");
+// console.log(test.newLetter);
+// console.log("----------------------------------------");
 
 console.log("guesses: " + test.guesses());
 console.log("----------------------------------------");
