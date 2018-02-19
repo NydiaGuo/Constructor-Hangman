@@ -7,21 +7,26 @@ var Word = function(word) {
 
 	// call the function on each letter object (the first function defined in Letter.js) 
 	  // that displays the character or an underscore and concatenate those together.
-	this.addLetters = function(char, appear) {
-		//for (var i = 0; i < this.newLetter.length; i++) {
-			this.newLetter.push(new Letters(char, appear));
-		//}
+	this.addLetters = function() {
+		for (var i = 0; i < this.word.length; i++) {
+			var newLetters = new Letters(this.word[i]);
+			this.newLetter.push(newLetters);
+		}
 	};
 
 
 	// A function that takes a character as an argument 
-	  // and calls the guess function on each letter object (the second function defined in Letter.js)
+	//   // and calls the guess function on each letter object (the second function defined in Letter.js)
+	// this.guesses = function(guessed) {
+
+
+	// }
 
 };
 
 
 var test = new Word("abc");
 
-test.addLetters('b');
+console.log(test.addLetters);
 
-console.log(JSON.stringify(test));
+module.exports = Word;
