@@ -38,10 +38,6 @@ var Word = function(word) {
 		 }
 
 		 console.log("this is show Letter: " + showLetter);
-		// that.newLetter.forEach(function(char){
-		// 	var currentLetters = char.letterRender();
-		// 	showLetter += currentLetters;
-		// });
 		return showLetter;
 	};
 }
