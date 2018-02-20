@@ -16,17 +16,6 @@ var Word = function(word) {
 		}
 	};
 
-	//If the player does not find a letter
-	this.guesses = function(guessed) {
-		if(this.newLetter.every(function(char){
-			return this.appear === true;
-		})) {
-			this.wordGet = true;
-			return true;
-		}
-
-	};
-
 	this.checkIfLetterFound = function(guessedLetter) {
 		
 	   //iterates through each letter to see if it matches the guessed letter
@@ -35,44 +24,38 @@ var Word = function(word) {
 	   console.log(wordObject.newLetter);
 	   	for(var i =0; i < that.newLetter.length; i++){
 	   		 if(that.newLetter[i].character === guessedLetter){
-		     	that.newLetter[i] = true;
+		     	that.newLetter[i].appear = true;
 	    	}	
 	   	}
 	};
 
 	this.wordRender = function() {
-		//var showLetter = "";
+		var showLetter = "";
+			   console.log(that.newLetter);
 		for (var i = 0; i < that.newLetter.length; i++) {
-			//showLetter += that.newLetter.length[i];
-			console.log("this is wordRender :" + that.newLetter[i].toString());
+			showLetter += that.newLetter[i].letterRender();
+			//console.log("this is wordRender :" + that.newLetter[i].character);
 		 }
+
+		 console.log("this is show Letter: " + showLetter);
 		// that.newLetter.forEach(function(char){
 		// 	var currentLetters = char.letterRender();
 		// 	showLetter += currentLetters;
 		// });
-		//return showLetter;
+		return showLetter;
 	};
 }
-
 
 module.exports = Word;
 
 var test = new Word("abc");
 
-
 console.log("addLetters: " + test.addLetters());
 console.log("----------------------------------------");
 
-// console.log(test.newLetter);
-// console.log("----------------------------------------");
-
-console.log("guesses: " + test.guesses());
-console.log("----------------------------------------");
-
-
 console.log("checkIfLetterFound: " + test.checkIfLetterFound("a"));
+console.log("checkIfLetterFound: " + test.checkIfLetterFound("b"));
 console.log("----------------------------------------");
-
 
 console.log("wordRender: " + test.wordRender());
 console.log("----------------------------------------");

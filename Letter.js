@@ -10,7 +10,7 @@ var Letter = function(char) {
 		if (this.character === " ") {
 			this.appear = true;
 			return " ";
-		} if (!this.character) {
+		} else if (!this.appear) {
 			return "_";
 		} else {
 			return this.character;
